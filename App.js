@@ -16,6 +16,10 @@ import Signup_ChooseUsername from './src/screens/auth/Signup/Signup_ChooseUserna
 import Signup_ChoosePassword from './src/screens/auth/Signup/Signup_ChoosePassword';
 import Signup_AccountCreated from './src/screens/auth/Signup/Signup_AccountCreated';
 import InitialScreen from './src/screens/InitialScreen/InitialScreen';
+import ForgotPassword_EnterEmail from './src/screens/auth/ForgotPassword/ForgotPassword_EnterEmail';
+import ForgotPassword_EnterVerificationCode from './src/screens/auth/ForgotPassword/ForgotPassword_EnterVerificationCode';
+import ForgotPassword_ChoosePassword from './src/screens/auth/ForgotPassword/ForgotPassword_ChoosePassword';
+import ForgotPassword_AccountRecovered from './src/screens/auth/ForgotPassword/ForgotPassword_AccountRecovered';
 
 const Stack = createNativeStackNavigator();
 

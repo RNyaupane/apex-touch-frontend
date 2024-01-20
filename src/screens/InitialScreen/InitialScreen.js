@@ -1,20 +1,11 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import logo from '../../../img/logo.png';
 
 const InitialScreen = () => {
   return (
     <View>
-      <Image
-        source={require('../../../img/logoApexTouch.svg')}
-        style={{width: 200, height: 200}}
-      />
-      <Image
-        source={{
-          uri: 'https://www.shutterstock.com/image-photo/black-rowan-berries-on-branches-red-159086927',
-        }}
-      />
-
-      {/* <Text>Initial</Text> */}
+      <Image source={logo} style={{width: 200, height: 200}} />
     </View>
   );
 };
