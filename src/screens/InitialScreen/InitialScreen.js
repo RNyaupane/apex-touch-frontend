@@ -1,11 +1,21 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
+import {DotIndicator, CirclesLoader} from 'react-native-indicators';
+
 import React from 'react';
 import logo from '../../../img/logo.png';
+import {
+  centeredContainer,
+  containerFull,
+  logoImage,
+} from '../../CommonCss/Pagecss';
 
 const InitialScreen = () => {
   return (
-    <View>
-      <Image source={logo} style={{width: 200, height: 200}} />
+    <View style={containerFull}>
+      <View style={centeredContainer}>
+        <Image source={logo} style={logoImage} />
+        <DotIndicator color="white" size={6} />
+      </View>
     </View>
   );
 };
