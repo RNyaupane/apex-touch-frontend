@@ -7,8 +7,29 @@ import {
   Switch,
   StyleSheet,
 } from 'react-native';
+
 import AuthHeading from '../../../components/AuthHeading';
-import AuthTextInput from '../../../components/AuthTextInput';
+import {
+  AuthButtonContainer,
+  container,
+  inputField,
+  rememberContainer,
+} from '../../../CommonCss/formcss';
+
+import {
+  bold,
+  flexEnd,
+  font600,
+  marginLeft10,
+  text18,
+  textCenter,
+  textPrimary,
+  textRed,
+  textSecondary,
+  textWhite,
+  top50,
+  width80,
+} from '../../../CommonCss/Pagecss';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -22,99 +43,52 @@ const Login = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={container}>
       <AuthHeading heading="Login" />
-      <AuthTextInput
+      <TextInput
+        style={inputField}
         placeholder="Enter email"
-        onTextChange={text => setEmail(text)}
+        value={email}
+        onChangeText={text => setEmail(text)}
       />
 
-      <AuthTextInput
+      <TextInput
+        style={inputField}
         placeholder="Enter password"
-        secureTextEntry
-        onTextChange={text => setPassword(text)}
+        secureTextEntry={true}
+        value={password}
+        onChangeText={text => setPassword(text)}
       />
 
       <TouchableOpacity
-        style={styles.forgotPasswordContainer}
-        onPress={() => console.log('Forgot Password?')}>
-        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+        style={[styles.forgotPasswordContainer, width80, flexEnd]}>
+        <Text style={textRed}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <View style={styles.rememberContainer}>
+      <View style={rememberContainer}>
         <Switch
           trackColor={{false: '#767577', true: '#81b0ff'}}
-          thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-          ios_backgroundColor="#3e3e3e"
+          thumbColor={isEnabled ? '' : '#f4f3f4'}
           onValueChange={toggleSwitch}
           value={isEnabled}
         />
-        <Text style={styles.rememberText}>Remember me</Text>
+        <Text style={[textPrimary, marginLeft10]}>Remember me</Text>
       </View>
 
       <View style={styles.signUpContainer}>
-        <Text style={styles.signUpText}>
-          Don't have an account? <Text style={styles.span}>Sign up</Text>
+        <Text style={[textSecondary, top50]}>
+          Don't have an account?{' '}
+          <Text style={[bold, textPrimary]}>Sign up</Text>
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.buttonContainer} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+      <TouchableOpacity style={AuthButtonContainer} onPress={handleLogin}>
+        <Text style={[textWhite, font600, text18, textCenter]}>Login</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FCFCFC',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  forgotPasswordContainer: {
-    width: '80%',
-    alignItems: 'flex-end',
-    marginBottom: 20,
-  },
-  forgotPasswordText: {
-    textAlign: 'right',
-    color: 'red',
-  },
-  rememberContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '80%',
-  },
-  rememberText: {
-    marginLeft: 10,
-    color: '#1D1E20',
-  },
-  buttonContainer: {
-    backgroundColor: '#0F4871',
-    padding: 11,
-    borderRadius: 20,
-    height: 50,
-    width: 300,
-    top: 65,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 18,
-    textAlign: 'center',
-    fontWeight: '600',
-  },
-  signUpContainer: {
-    marginTop: 10,
-  },
-  signUpText: {
-    color: '#1D1E20',
-    top: 50,
-  },
-  span: {
-    fontWeight: 'bold',
-  },
-});
+const styles = StyleSheet.create({});
 
 export default Login;

@@ -5,53 +5,128 @@ module.exports = {
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   logoImage: {
-    // You can adjust the width and height properties according to your requirements
     width: 250,
     marginTop: 250,
     marginBottom: 230,
     height: 200,
-    resizeMode: 'contain', // This ensures that the image maintains its aspect ratio
+    resizeMode: 'contain',
   },
   centeredContainer: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  buttonContainer: {
-    backgroundColor: 'blue', // Set your desired background color
-    padding: 10,
-    marginVertical: 10,
-    borderRadius: 5,
+
+  // ***************************Background Color**************************
+  bgPrimary: {
+    backgroundColor: '#0F4871',
   },
-  buttonText: {
+  bgWhite: {
+    backgroundColor: 'white',
+  },
+  bgLight: {
+    backgroundColor: '#FCFCFC',
+  },
+  bgF5F6FA: {
+    backgroundColor: '#F5F6FA',
+  },
+  bg0F4871: {
+    backgroundColor: '#0F4871',
+  },
+  bgF5F6FA: {
+    backgroundColor: '#F5F6FA',
+  },
+
+  // ***************************Font Color**************************
+  textPrimary: {
+    color: '#1D1E20',
+  },
+  textSecondary: {
+    color: '#1D1E20',
+  },
+  textWhite: {
     color: 'white',
-    fontSize: 16,
   },
-  loginText: {
-    fontSize: 20,
+  textRed: {
+    color: 'red',
+  },
+  textGreen: {
+    color: '#34C559',
+  },
+  textBlue: {
+    color: '#1D4ED8',
+  },
+
+  // **************************Text Align***************************
+  textRight: {
+    textAlign: 'right',
+  },
+  textCenter: {
+    textAlign: 'center',
+  },
+  textLeft: {
+    textAlign: 'left',
+  },
+
+  // ***************************Font Size**************************
+  text10: {
+    fontSize: 10,
+  },
+  text12: {
+    fontSize: 12,
+  },
+  text14: {
+    fontSize: 14,
+  },
+  text18: {
+    fontSize: 18,
+  },
+
+  // ***************************Font Weight**************************
+  bold: {
     fontWeight: 'bold',
-    marginVertical: 10,
   },
-  inputField: {
-    width: '80%',
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingLeft: 10,
+  font600: {
+    fontWeight: '600',
   },
-  rememberContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
+
+  // ***************************Box Shadow**************************
+
+  // ***************************Border Radius************************
+  rounded20: {
+    borderRadius: 20,
   },
-  rememberText: {
+
+  // ***************************Margin************************
+  marginLeft10: {
     marginLeft: 10,
   },
-  signInText: {
-    marginTop: 10,
-    color: 'blue', // Set your desired text color
+
+  // ***************************Padding************************
+  padding10: {
+    padding: 10,
+  },
+  // ***************************Position************************
+  top50: {
+    top: 50,
+  },
+  top65: {
+    top: 65,
+  },
+  flexEnd: {
+    alignItems: 'flex-end',
+  },
+
+  // ***************************Height************************
+  height50: {
+    height: 50,
+  },
+
+  // ***************************Width************************
+  width300: {
+    width: 300,
+  },
+  width80: {
+    width: '80%',
   },
 };
