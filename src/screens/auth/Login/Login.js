@@ -1,65 +1,66 @@
-import CheckBox from '@react-native-community/checkbox';
 import React, {useState} from 'react';
 import {
   View,
   Text,
   TextInput,
   TouchableOpacity,
-  Button,
+  Switch,
   StyleSheet,
 } from 'react-native';
+import AuthHeading from '../../../components/AuthHeading';
+import AuthTextInput from '../../../components/AuthTextInput';
 
 const Login = () => {
-  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
 
+  const toggleSwitch = () => setIsEnabled(prevState => !prevState);
   const handleLogin = () => {
     // Implement your login logic here
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.loginText}>Login</Text>
-
-      <TextInput
-        style={styles.inputField}
-        placeholder="Full Name"
-        value={fullName}
-        onChangeText={text => setFullName(text)}
+      <AuthHeading heading="Login" />
+      <AuthTextInput
+        placeholder="Enter email"
+        onTextChange={text => setEmail(text)}
       />
 
-      <TextInput
-        style={styles.inputField}
-        placeholder="Email"
-        value={email}
-        onChangeText={text => setEmail(text)}
+      <AuthTextInput
+        placeholder="Enter password"
+        secureTextEntry
+        onTextChange={text => setPassword(text)}
       />
 
-      <TextInput
-        style={styles.inputField}
-        placeholder="Password"
-        secureTextEntry={true}
-        value={password}
-        onChangeText={text => setPassword(text)}
-      />
+      <TouchableOpacity
+        style={styles.forgotPasswordContainer}
+        onPress={() => console.log('Forgot Password?')}>
+        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+      </TouchableOpacity>
 
       <View style={styles.rememberContainer}>
-        <CheckBox
-          value={rememberMe}
-          onValueChange={value => setRememberMe(value)}
+        <Switch
+          trackColor={{false: '#767577', true: '#81b0ff'}}
+          thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isEnabled}
         />
         <Text style={styles.rememberText}>Remember me</Text>
+      </View>
+
+      <View style={styles.signUpContainer}>
+        <Text style={styles.signUpText}>
+          Don't have an account? <Text style={styles.span}>Sign up</Text>
+        </Text>
       </View>
 
       <TouchableOpacity style={styles.buttonContainer} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
-
-      <View style={styles.signUpContainer}>
-        <Text style={styles.signUpText}>Don't have an account? Sign up</Text>
-      </View>
     </View>
   );
 };
@@ -67,49 +68,52 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#001C30',
+    backgroundColor: '#FCFCFC',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  loginText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: 'white',
-  },
-  inputField: {
+
+  forgotPasswordContainer: {
     width: '80%',
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingLeft: 10,
-    color: 'white',
+    alignItems: 'flex-end',
+    marginBottom: 20,
+  },
+  forgotPasswordText: {
+    textAlign: 'right',
+    color: 'red',
   },
   rememberContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    width: '80%',
   },
   rememberText: {
     marginLeft: 10,
-    color: 'white',
+    color: '#1D1E20',
   },
   buttonContainer: {
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: '#0F4871',
+    padding: 11,
+    borderRadius: 20,
+    height: 50,
+    width: 300,
+    top: 65,
   },
   buttonText: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: '600',
   },
   signUpContainer: {
     marginTop: 10,
   },
   signUpText: {
-    color: 'blue',
+    color: '#1D1E20',
+    top: 50,
+  },
+  span: {
+    fontWeight: 'bold',
   },
 });
 
